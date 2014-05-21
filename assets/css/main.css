@@ -1,0 +1,263 @@
+/* helper/utility */
+
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+.visuallyhidden {
+	border: 0;
+	clip: rect(0000);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	clip: auto;
+	height: auto;
+	overflow: visible;
+	position: static;
+	width: auto;
+	margin: 0;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.ng-cloak {
+	display: none !important;
+}
+
+
+/* styles */
+
+.browsehappy {
+	color: #000;
+	margin: .2em 0;
+	padding: .2em 0;
+	background: #ccc;
+}
+
+.ng-valid {
+	border-color: #3c763d;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.ng-dirty.ng-invalid {
+	border-color: #a94442;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+	cursor: pointer;
+}
+
+html,
+body {
+	height: 100%;
+	color: #222;
+	font-family: 'Noto Sans', 'Helvetica Neue', 'Liberation Sans', Arimo, Calibri, Helvetica, 'Trebuchet MS', Arial, sans-serif;
+}
+
+kbd,
+samp,
+code,
+pre {
+	font-family: 'Source Code Pro', 'Ubuntu Mono', 'Liberation Mono', Cousine, Menlo, Consolas, Monaco, Courier, 'Courier New', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Roboto, 'Open Sans', 'Helvetica Neue', 'Liberation Sans', Arimo, Calibri, Helvetica, 'Trebuchet MS', Arial, sans-serif;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1rem 0;
+	padding: 0;
+}
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+textarea {
+	resize: vertical;
+}
+
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	margin: 0 auto -2rem;
+	padding: 0 0 2rem;
+}
+
+#footer {
+	height: 2rem;
+}
+
+#footer .container-fluid {
+	height: 2rem;
+	line-height: 1.8rem;
+	vertical-align: middle;
+}
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+.navbar-toggle {
+	color: #ccc;
+	margin-left: .5rem;
+	margin-right: 0;
+}
+
+#sidenav {
+	position: absolute;
+	width: 12rem;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-12rem);
+	transform: translateX(-12rem);
+	-webkit-transition: 400ms;
+	transition: 400ms;
+	background-color: #333;
+	height: 100%;
+}
+
+#sidenav .list-group {
+	margin-top: 1rem;
+	box-shadow: none;
+}
+
+#sidenav .list-group-item {
+	background-color: #333;
+	border: 0;
+	color: #ccc;
+}
+
+#sidenav.active {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+
+#sidenav ~ #page {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	-webkit-transition: 400ms;
+	transition: 400ms;
+	height: 100%;
+}
+
+#sidenav.active ~ #page {
+	-webkit-transform: translateX(12rem);
+	transform: translateX(12rem);
+}
+
+::-moz-selection,
+::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+
+	* {
+		color: #000 !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+
+	a[href]:after {
+		content: ' (' attr(href) ')';
+	}
+
+	abbr[title]:after {
+		content: ' (' attr(title) ')';
+	}
+
+	a[href^=javascript:]:after,
+	a[href^=#]:after {
+		content: '';
+	}
+
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+
+	thead {
+		display: table-header-group;
+	}
+
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+
+}

@@ -1,0 +1,45 @@
+{
+	"name": "sails-angular-bootstrap",
+	"version": "0.0.1",
+	"description": "a Sails.js application",
+	"keywords": [],
+	"author": "Rich Martel",
+	"license": "MIT",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/richmartel/sails-angular-bootstrap.git"
+	},
+	"dependencies": {
+		"sails": "^0.10",
+		"sails-disk": "^0.10",
+		"sails-mongo": "^0.10",
+		"include-all": "^0.1",
+		"ejs": "^1.0",
+		"rc": "^0.3",
+		"grunt": "^0.4",
+		"grunt-contrib-copy": "^0.5",
+		"grunt-contrib-clean": "^0.5",
+		"grunt-contrib-concat": "^0.4",
+		"grunt-contrib-jst": "^0.6",
+		"grunt-contrib-watch": "^0.5",
+		"grunt-contrib-uglify": "^0.4",
+		"grunt-contrib-cssmin": "^0.9",
+		"grunt-sync": "^0.0.7",
+		"grunt-sails-linker": "^0.9",
+		"rsvp": "^3.0"
+	},
+	"devDependencies": {
+		"mocha": "^1.19",
+		"chai": "^1.9",
+		"sinon": "^1.10",
+		"sinon-chai": "^2.5",
+		"grunt-contrib-jshint": "^0.10",
+		"grunt-mocha-test": "^0.10"
+	},
+	"scripts": {
+		"start": "node app.js",
+		"debug": "node debug app.js"
+	},
+	"main": "app.js"
+}

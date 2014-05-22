@@ -24,7 +24,7 @@ angular
 		$scope.ui = {
 			sidenavActive: false,
 		};
-		$scope.addNotifications = function() {
+		$scope.addNotification = function() {
 			switch (Math.floor(Math.random() * 4)) {
 				case 0:
 					growl.success('The process was successful', {title: 'SUCCESS:'});

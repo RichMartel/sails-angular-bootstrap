@@ -30,7 +30,7 @@ angular
 					growl.success('Data has been saved', {title: 'SUCCESS:'});
 					break;
 				case 1:
-					growl.info('John Smith is requesting a chat', {title: 'NOTICE:'});
+					growl.info('John Smith is requesting a chat', {title: 'UPDATE:'});
 					break;
 				case 2:
 					growl.warning('Your session is about to expire', {title: 'WARNING:'});

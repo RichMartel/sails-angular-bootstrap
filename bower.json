@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "bootstrap": "^3.1",
+    "animate.css": "^3.1",
     "fontawesome": "^4.1",
     "modernizr": "^2.8",
     "sails.io.js": "^0.10",

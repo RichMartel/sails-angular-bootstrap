@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" class="no-js" ng-app="myApp">
+<html lang="en-US" class="no-js" ng-app="app">
 	<head>
 		<meta charset="utf-8"/>
 		<title>sails-angular-bootstrap</title>
@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
 		<link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.css"/>
+		<link rel="stylesheet" href="/bower_components/angular-growl-v2/build/angular-growl.min.css"/>
 		<link rel="stylesheet" href="/css/main.css"/>
 		<script src="/bower_components/modernizr/modernizr.js"></script>
 	</head>
@@ -16,13 +17,14 @@
 		<!--[if lt IE 11]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<nav id="sidenav" class="{{(ui.sidenavActive) ? 'active' : ''}}" role="navigation">
-			<div class="list-group" ng-click-"toggleMenu()">
+		<nav id="sidenav" ng-class="{'active': ui.sidenavActive}" role="navigation">
+			<div class="list-group" ng-click="ui.sidenavActive=false">
 				<a href="/" class="list-group-item"><span class="fa fa-fw fa-home"></span>&nbsp;Home</a>
 			</div>
 		</nav>
 		<div id="page">
-			<div id="wrap">
+			<div growl></div>
+			<div id="not-footer">
 				<header id="header">
 					<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 						<div class="container-fluid">
@@ -40,13 +42,13 @@
 				</header>
 				<main id="main">
 					<div class="container-fluid">
-						<div ng-view=""></div>
+						<div ng-view></div>
 					</div>
 				</main>
 			</div>
 			<footer id="footer">
 				<div class="container-fluid">
-					<span><small>&copy;&nbsp;<time><script>document.write(new Date().getFullYear());</script></time>&nbsp;company.com</small></span>
+					<span><small>&copy;&nbsp;<time><script>document.write(new Date().getFullYear());</script></time>&nbsp;Company</small></span>
 				</div>
 			</footer>
 		</div>
@@ -59,7 +61,7 @@
 		<script src="/bower_components/angular-animate/angular-animate.js"></script>
 		<script src="/bower_components/angular-touch/angular-touch.js"></script>
 		<script src="/bower_components/angular-sails/dist/angular-sails.js"></script>
-		<script src="/bower_components/angular-growl/build/angular-growl.js"></script>
+		<script src="/bower_components/angular-growl-v2/build/angular-growl.js"></script>
 		<script src="/bower_components/jquery/dist/jquery.js"></script>
 		<script src="/bower_components/webshim/js-webshim/dev/polyfiller.js"></script>
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>

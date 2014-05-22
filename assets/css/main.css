@@ -71,11 +71,18 @@
 	cursor: pointer;
 }
 
+.navbar-toggle {
+	color: #ccc;
+	margin-left: .5rem;
+	margin-right: 0;
+}
+
 html,
 body {
 	height: 100%;
 	color: #222;
 	font-family: 'Noto Sans', 'Helvetica Neue', 'Liberation Sans', Arimo, Calibri, Helvetica, 'Trebuchet MS', Arial, sans-serif;
+	overflow-x: hidden;
 }
 
 kbd,
@@ -121,7 +128,7 @@ textarea {
 	resize: vertical;
 }
 
-#wrap {
+#not-footer {
 	min-height: 100%;
 	height: auto !important;
 	margin: 0 auto -2rem;
@@ -138,17 +145,6 @@ textarea {
 	vertical-align: middle;
 }
 
-html,
-body {
-	overflow-x: hidden;
-}
-
-.navbar-toggle {
-	color: #ccc;
-	margin-left: .5rem;
-	margin-right: 0;
-}
-
 #sidenav {
 	position: absolute;
 	width: 12rem;
@@ -160,7 +156,7 @@ body {
 	transform: translateX(-12rem);
 	-webkit-transition: 400ms;
 	transition: 400ms;
-	background-color: #333;
+	background-color: #666;
 	height: 100%;
 }
 
@@ -170,7 +166,7 @@ body {
 }
 
 #sidenav .list-group-item {
-	background-color: #333;
+	background-color: #666;
 	border: 0;
 	color: #ccc;
 }

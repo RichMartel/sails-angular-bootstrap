@@ -3,7 +3,7 @@
  */
 
 angular
-	.module('myApp.home', [])
+	.module('app.home', [])
 	.controller('HomeController', ['$scope', function($scope) {
 		'use strict';
 	}]);

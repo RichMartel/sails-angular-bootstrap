@@ -1,5 +1,5 @@
 {
-	"name": "wargame",
+	"name": "sails-angular-bootstrap",
 	"version": "0.0.1",
 	"dependencies": {
 		"bootstrap": "^3.1",
@@ -14,6 +14,7 @@
 		"angular-animate": "^1.3",
 		"angular-touch": "^1.3",
 		"angular-sails": "^1.0",
+		"angular-growl": "^0.4",
 		"jquery": "^2.1",
 		"webshim": "^1.12"
 	},

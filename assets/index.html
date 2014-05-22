@@ -19,7 +19,7 @@
 		<!--[if lt IE 11]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<nav id="sidenav" ng-class="{'active': ui.sidenavActive}" role="navigation">
+		<nav id="sidenav" class="hidden-sm hidden-md hidden-lg" ng-class="{'active': ui.sidenavActive}" role="navigation">
 			<div class="list-group" ng-click="ui.sidenavActive=false">
 				<a href="/" class="list-group-item"><span class="fa fa-fw fa-home"></span>&nbsp;Home</a>
 			</div>
@@ -45,7 +45,7 @@
 				<main id="main">
 					<div class="container-fluid">
 						<div ng-view></div>
-						<button ng-click="addNotifications()">Add notifications</button>
+						<button class="btn btn-default" ng-click="addNotifications()">Add notifications</button>
 					</div>
 				</main>
 			</div>

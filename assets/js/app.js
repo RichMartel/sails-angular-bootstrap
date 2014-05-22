@@ -17,7 +17,7 @@ angular
 			.otherwise({
 				redirectTo: '/',
 			});
-		growlProvider.globalTimeToLive({success: 4000, info: 6000, warning: 10000, error: 20000});
+		growlProvider.globalTimeToLive({success: 4000, info: 4000, warning: 10000, error: 10000});
 	}])
 	.controller('AppController', ['$scope', 'growl', function($scope, growl) {
 		'use strict';
@@ -25,9 +25,18 @@ angular
 			sidenavActive: false,
 		};
 		$scope.addNotifications = function() {
-			growl.success('success notification');
-			growl.info('info notification');
-			growl.warning('warning notification');
-			growl.error('error notification');
+			switch (Math.floor(Math.random() * 4)) {
+				case 0:
+					growl.success('The process was successful', {title: 'SUCCESS:'});
+					break;
+				case 1:
+					growl.info('This is some information', {title: 'INFO:'});
+					break;
+				case 2:
+					growl.warning('Your session is about to expire', {title: 'WARNING:'});
+					break;
+				case 3:
+					growl.error('No data found', {title: 'ERROR:'});
+			}
 		}
 	}]);

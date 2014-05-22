@@ -27,16 +27,16 @@ angular
 		$scope.addNotification = function() {
 			switch (Math.floor(Math.random() * 4)) {
 				case 0:
-					growl.success('The process was successful', {title: 'SUCCESS:'});
+					growl.success('Data has been saved', {title: 'SUCCESS:'});
 					break;
 				case 1:
-					growl.info('This is some information', {title: 'INFO:'});
+					growl.info('John Smith is requesting a chat', {title: 'NOTICE:'});
 					break;
 				case 2:
 					growl.warning('Your session is about to expire', {title: 'WARNING:'});
 					break;
 				case 3:
-					growl.error('No data found', {title: 'ERROR:'});
+					growl.error('No data found', {title: 'FAILURE:'});
 			}
 		}
 	}]);

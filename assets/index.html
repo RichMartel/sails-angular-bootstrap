@@ -29,7 +29,7 @@
 					<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 						<div class="container-fluid">
 							<div class="navbar-header">
-								<button type="button" id="sidenav-btn" class="navbar-toggle pull-left" ng-click="ui.sidenavActive=!ui.sidenavActive"><span class="fa fa-fw {{(ui.sidenavActive) ? 'fa-chevron-left' : 'fa-bars'}}"></span></button>
+								<button type="button" class="navbar-toggle pull-left" ng-click="ui.sidenavActive=!ui.sidenavActive"><span class="fa fa-fw {{(ui.sidenavActive) ? 'fa-chevron-left' : 'fa-bars'}}"></span></button>
 								<a href="/" class="navbar-brand">sails-angular-bootstrap</a>
 							</div>
 							<div class="collapse navbar-collapse" id="header-navbar-collapse">
@@ -43,6 +43,7 @@
 				<main id="main">
 					<div class="container-fluid">
 						<div ng-view></div>
+						<button ng-click="addNotifications()">Add notifications</button>
 					</div>
 				</main>
 			</div>
@@ -62,9 +63,9 @@
 		<script src="/bower_components/angular-touch/angular-touch.js"></script>
 		<script src="/bower_components/angular-sails/dist/angular-sails.js"></script>
 		<script src="/bower_components/angular-growl-v2/build/angular-growl.js"></script>
-		<script src="/bower_components/jquery/dist/jquery.js"></script>
-		<script src="/bower_components/webshim/js-webshim/dev/polyfiller.js"></script>
-		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<!-- <script src="/bower_components/jquery/dist/jquery.js"></script> -->
+		<!-- <script src="/bower_components/webshim/js-webshim/dev/polyfiller.js"></script> -->
+		<!-- <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
 		<script src="/js/app.js"></script>
 		<script src="/components/home/home.js"></script>
 		<script>

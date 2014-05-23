@@ -6,7 +6,7 @@ angular
 		'angular-growl',
 		'app.home',
 	])
-	.config(['$routeProvider', '$locationProvider', 'growlProvider', function($routeProvider, $locationProvider, growlProvider) {
+	.config(['$routeProvider', '$locationProvider', '$provide', 'growlProvider', function($routeProvider, $locationProvider, $provide, growlProvider) {
 		'use strict';
 		//$locationProvider.html5Mode(true);
 		$routeProvider
@@ -17,7 +17,26 @@ angular
 			.otherwise({
 				redirectTo: '/',
 			});
-		growlProvider.globalTimeToLive({success: 4000, info: 4000, warning: 10000, error: 10000});
+		$provide.decorator('$exceptionHandler', function($delegate) {
+			return function(exception, cause) {
+				$delegate(exception, cause);
+				try {
+					$http.post('/clientlogger', angular.toJson({
+						url: $window.location.href,
+						message: exception.toString(),
+						stacktrace: printStackTrace({e: exception}),
+						cause: (cause || ''),
+					}))
+					.failure(function(data, status) {
+						$log.error('Server responded with an error while pushing client error to server:', status, data);
+					});
+				}
+				catch(e) {
+					$log.error('Failed to push client error to server:', e);
+				}
+			};
+		});
+		growlProvider.globalTimeToLive({success: 5000, info: 5000, warning: 10000, error: 10000});
 	}])
 	.controller('AppController', ['$scope', 'growl', function($scope, growl) {
 		'use strict';
@@ -39,4 +58,4 @@ angular
 					growl.error('No data found', {title: 'FAILURE:'});
 			}
 		}
-	}]);
+	}])

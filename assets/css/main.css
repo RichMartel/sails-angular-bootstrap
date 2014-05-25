@@ -182,19 +182,10 @@ textarea {
 
 #sidenav {
 	position: absolute;
-	width: 12rem;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transform: translateX(-12rem);
-	transform: translateX(-12rem);
-	-webkit-transition: 400ms;
-	transition: 400ms;
-	-webkit-transition-timing-function: ease;
-	transition-timing-function: ease;
+	width: 15rem;
 	background-color: #666;
 	height: 100%;
+	z-index: 0;
 }
 
 #sidenav .list-group {
@@ -208,28 +199,44 @@ textarea {
 	color: #ccc;
 }
 
-#sidenav.active {
-	-webkit-transform: translateX(0);
-	transform: translateX(0);
-}
-
 #sidenav ~ #page {
+	position: relative;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	-webkit-transform: translateX(0);
 	transform: translateX(0);
-	-webkit-transition: 400ms;
-	transition: 400ms;
+	-webkit-transition: 200ms;
+	transition: 200ms;
 	-webkit-transition-timing-function: ease;
 	transition-timing-function: ease;
 	height: 100%;
+	background-color: #fff;
 }
 
 #sidenav.active ~ #page {
-	-webkit-transform: translateX(12rem);
-	transform: translateX(12rem);
+	-webkit-transform: translateX(15rem);
+	transform: translateX(15rem);
+}
+
+#page-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.dim-background {
+	background-color: rgba(0, 0, 0, .8);
+}
+
+.loader-image {
+	background-image: url(/img/ajax-loader.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.5;
 }
 
 ::-moz-selection,
@@ -237,6 +244,7 @@ textarea {
 	text-shadow: none;
 	background: #b3d4fc;
 }
+
 
 @media print {
 

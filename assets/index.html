@@ -19,8 +19,8 @@
 		<!--[if lt IE 11]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<nav id="sidenav" class="hidden-sm hidden-md hidden-lg" ng-class="{'active': ui.sidenavActive}" role="navigation">
-			<div class="list-group" ng-click="ui.sidenavActive=false">
+		<nav id="sidenav" class="hidden-sm hidden-md hidden-lg" ng-class="{'active': ui.sidenav}" role="navigation">
+			<div class="list-group" ng-click="ui.sidenav=false">
 				<a href="/" class="list-group-item"><span class="fa fa-fw fa-home"></span>&nbsp;Home</a>
 			</div>
 		</nav>
@@ -31,7 +31,7 @@
 					<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 						<div class="container-fluid">
 							<div class="navbar-header">
-								<button type="button" class="navbar-toggle pull-left" ng-click="ui.sidenavActive=!ui.sidenavActive"><span class="fa fa-fw {{(ui.sidenavActive) ? 'fa-chevron-left' : 'fa-bars'}}"></span></button>
+								<button type="button" class="navbar-toggle pull-left" ng-click="ui.sidenav=!ui.sidenav"><span class="fa fa-fw {{(ui.sidenav) ? 'fa-chevron-left' : 'fa-bars'}}"></span></button>
 								<a href="/" class="navbar-brand">sails-angular-bootstrap</a>
 							</div>
 							<div class="collapse navbar-collapse" id="header-navbar-collapse">
@@ -55,6 +55,7 @@
 				</div>
 			</footer>
 		</div>
+		<div id="page-overlay" class="dim-page" ng-class="{'loader-image': ui.loaderImageActive, 'hidden': !ui.dimPageActive}"></div>
 		<script src="/bower_components/stacktrace/stacktrace.js"></script>
 		<script src="/bower_components/sails.io.js/dist/sails.io.js"></script>
 		<script src="/bower_components/angular/angular.js"></script>

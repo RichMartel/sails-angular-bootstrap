@@ -14,14 +14,15 @@ angular
 			var logWarn = $delegate.warn;
 			$delegate.error = function(message) {
 				logError(message);
-				alert(message);
+				logHttpService.postLog(message);
 			}
 			$delegate.warn = function(message) {
 				logWarn(message);
+				logHttpService.postLog(message);
 			}
 			return $delegate;
 		}]);
-		//$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(true);
 		$routeProvider
 			.when('/', {
 				controller: 'HomeController',
@@ -33,38 +34,48 @@ angular
 		growlProvider.globalTimeToLive({success: 5000, info: 5000, warning: 10000, error: 10000});
 	}])
 	.factory('logHttpService', ['$window', function($window) {
-		function postLog(exception, cause) {
-			try {
-				var httpReq = new XMLHttpRequest();
-				var sendData = {
-					url: $window.location.href,
-					message: exception.toString(),
-					stacktrace: printStackTrace({e: exception}),
-					cause: (cause || ''),
-				}
-				httpReq.onreadystatechange = function() {
-					if (httpReq.readyState === 4) {
-						if (httpReq.status === 200) {
-							return console.info(httpReq.status, httpReq.responseText);
-						}
-						else {
-							return console.error(httpReq.status, httpReq.responseText);
+		return {
+			postLog: function(message) {
+				try {
+					var httpReq = new XMLHttpRequest();
+					var data = {
+						url: $window.location.href,
+						message: message,
+						// stacktrace: printStackTrace({e: exception}),
+					}
+					console.log(data);
+					httpReq.onreadystatechange = function() {
+						if (httpReq.readyState === 4) {
+							if (httpReq.status === 200) {
+								// return console.info(httpReq.status, httpReq.responseText);
+							}
+							else {
+								return console.error(httpReq.status, httpReq.responseText);
+							}
 						}
 					}
+					httpReq.open('POST', '/clientlogger', true);
+					httpReq.send(data);
 				}
-				httpReq.open('POST', '/clientlogger', true);
-				httpReq.send(sendData);
-			}
-			catch (e) {
-				console.error(e)
+				catch (e) {
+					console.error(e);
+				}
 			}
 		}
-		return postLog;
 	}])
-	.controller('AppController', ['$scope', 'growl', function($scope, growl) {
+	.factory('$exceptionHandler', ['$log', function($log) {
+		return function(exception, cause) {
+			var args = Array.prototype.slice.call(arguments);
+			args.push(printStackTrace({e: exception}));
+			$log.error.apply($log, args);
+		};
+	}])
+	.controller('AppController', ['$scope', '$log', 'growl', function($scope, $log, growl) {
 		'use strict';
 		$scope.ui = {
-			sidenavActive: false,
+			sidenav: false,
+			dimPage: true,
+			loaderImage: false,
 		}
 		$scope.addNotification = function() {
 			switch (Math.floor(Math.random() * 4)) {
@@ -81,12 +92,4 @@ angular
 					growl.error('No data found', {title: 'FAILURE:'});
 			}
 		}
-		// setTimeout(function() {
-		// 	try {
-		// 		throw new Error('Test error handler');
-		// 	}
-		// 	catch (e) {
-		// 		alert(e.name + ': ' + e.message);
-		// 	}
-		// }, 2000)
-	}])
+	}]);

@@ -1,6 +1,6 @@
 {
 	"name": "sails-angular-bootstrap",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"dependencies": {
 		"stacktrace":"^0.6",
 		"bootstrap": "^3.1",

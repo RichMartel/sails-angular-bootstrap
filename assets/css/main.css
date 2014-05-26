@@ -134,6 +134,48 @@
 	border: 1px solid #dd4b39;
 }
 
+.view-animate-container {
+	position: relative;
+	height: 500px!important;
+	position: relative;
+	background: white;
+	overflow: hidden;
+}
+
+.view-animate {
+	padding: 10px;
+}
+
+.view-animate.ng-enter,
+.view-animate.ng-leave {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+	transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: 400ms;
+}
+
+.view-animate.ng-enter {
+	left: 100%;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+	left: 0;
+}
+
+.view-animate.ng-leave.ng-leave-active {
+	left: -100%;
+}
+
 html,
 body {
 	height: 100%;

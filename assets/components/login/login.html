@@ -1,0 +1,37 @@
+<div class="container">
+	<section class="panel panel-default panel-signin">
+		<div class="panel-heading">
+			<h2 class="panel-title">Sign-in</h2>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-xs-6">
+					<button class="btn btn-primary btn-facebook"><span class="fa fa-fw fa-facebook"></span>&nbsp;Sign-in with Facebook</button>
+				</div>
+				<div class="col-xs-6">
+					<button class="btn btn-primary btn-google-plus"><span class="fa fa-fw fa-google-plus"></span>&nbsp;Sign-in with Google+</button>
+				</div>
+			</div>
+			<form class="form form-horizontal form-signin">
+				<div class="input-group input-group-email">
+					<input type="email" name="formEmail" id="formEmail" ng-model="form.email" required="required" placeholder="email@domain.org" class="form-control" autofocus="autofocus"/>
+					<span class="input-group-addon"><span class="fa fa-envelope-o fa-fw"></span></span>
+				</div>
+				<div class="input-group input-group-password">
+					<input type="password" name="formPassword" id="formPassword" ng-model="form.password" required="required" pattern=".{6,18}" class="form-control" ng-change="checkPasswords()" placeholder="password"/>
+					<span class="input-group-addon"><span class="fa fa-key fa-fw"></span></span>
+				</div>
+				<label class="btn btn-default btn-remember" ng-class="{'active': form.remember}">
+					<input type="checkbox" name="formRemember" id="formRemember" ng-model="form.remember" class="pull-left"/>
+					<span class="label-text pull-left">&nbsp;Remember me</span>&nbsp;
+				</label>
+				<div class="controls">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="login()"><span class="fa fa-fw fa-sign-in"></span>&nbsp;Sign-in</button>
+				</div>
+			</form>
+			<div>
+				<a href="/signup" class="btn btn-default" role="button"><span class="fa fa-fw fa-check"></span> Sign-up</a>
+			</div>
+		</div>
+	</section>
+</div>

@@ -6,6 +6,8 @@ angular
 		'ngSails',
 		'angular-growl',
 		'app.home',
+		'app.login',
+		'app.test',
 	])
 	.config(['$provide', '$locationProvider', '$routeProvider', 'growlProvider', function($provide, $locationProvider, $routeProvider, growlProvider) {
 		'use strict';
@@ -27,6 +29,14 @@ angular
 			.when('/', {
 				controller: 'HomeController',
 				templateUrl: 'components/home/home.html',
+			})
+			.when('/login', {
+				controller: 'LoginController',
+				templateUrl: 'components/login/login.html',
+			})
+			.when('/test', {
+				controller: 'TestController',
+				templateUrl: 'components/test/test.html',
 			})
 			.otherwise({
 				redirectTo: '/',
@@ -75,21 +85,6 @@ angular
 		$scope.ui = {
 			sidenav: false,
 			dimPage: true,
-			loaderImage: false,
-		}
-		$scope.addNotification = function() {
-			switch (Math.floor(Math.random() * 4)) {
-				case 0:
-					growl.success('Data has been saved', {title: 'SUCCESS:'});
-					break;
-				case 1:
-					growl.info('John Smith is requesting a chat', {title: 'UPDATE:'});
-					break;
-				case 2:
-					growl.warning('Your session is about to expire', {title: 'WARNING:'});
-					break;
-				case 3:
-					growl.error('No data found', {title: 'FAILURE:'});
-			}
+			loaderImage: true,
 		}
 	}]);

@@ -5,19 +5,27 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+var bcrypt = require('bcrypt');
+
 module.exports = {
 	attributes: {
 		username: {
 			type: 'string',
-			required: true,
+			unique: true
+		},
+		displayName: {
+			type: 'string',
+		},
+		email: {
+			type: 'email',
 			unique: true,
 		},
-		password: {
-			type: 'string',
+		photo: {
+			type: 'url',
 		},
-		provider: {
-			type: 'string',
-			required: true,
+		passports: {
+			collection: 'Passport',
+			via: 'user',
 		},
 	},
 };

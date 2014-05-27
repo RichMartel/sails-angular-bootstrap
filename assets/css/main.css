@@ -136,14 +136,13 @@
 
 .view-animate-container {
 	position: relative;
-	height: 500px!important;
+	height: 500px !important;
 	position: relative;
 	background: white;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .view-animate {
-	padding: 10px;
 }
 
 .view-animate.ng-enter,
